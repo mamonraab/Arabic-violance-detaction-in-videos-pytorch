@@ -406,7 +406,9 @@ https://github.com/mamonraab/violance-detection-in-video-with-pytroch/tree/main/
 ويمكنكم ان تقومو بتدريب مودل خاص بكم باستخدام ماتم شرحة بهذا المقال 
 
 مع التحية والسلام
-
+اود ان اشير الى انني    قد قمت قبل سنة بكتابة ورقة علمية متخصصة بهذا الموضوع   ولن الكود البرمجي لها كان باستخدم التنسورفلو وبمعمارية مختلفة عن  المذكورة    بهذا المقال
+اذا احببت ان تطلع على الورقة العملية يمكنك من الرابط التالي
+https://www.researchgate.net/publication/336156932_Robust_Real-Time_Violence_Detection_in_Video_Using_CNN_And_LSTM
 </div>
 
 

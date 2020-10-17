@@ -279,6 +279,8 @@ class Net(nn.Module):
 <br>  لو اردنا  تطبيقه بكلاس لبناء مودل متكامل يكون كالتالي  مع استخدام المخرجات  ووضعها بطبقة LSTM
  
 </div>
+
+
  
 
 ```
@@ -328,12 +330,16 @@ class Net2(nn.Module):
         x = self.fc2(x)
         return x 
 ```
+
+
  
 <div dir="rtl">
  
 <br>  لتسهيل العمل وكتابة كود نضيف ساقوم بعمل كلاس   يقوم بالعمليتين حسب اختيارنا اثناء البناء  وايضا يسهل لناعملية استدعاء الكلاس باي مكان نريد
  
 </div>
+
+
  
 ```
 class TimeWarp(nn.Module):
@@ -367,18 +373,24 @@ class TimeWarp(nn.Module):
         return x
 
 ```
+
+
 <div dir="rtl">
  
 لو اردنا استخدام الكلاس اعلاه    يمكن ذلك من خلال الكود التوضيحي التالي 
 </div> 
+
+
+
 ```
 baseModel = models.vgg19(pretrained=pretrained).features
 
 model = nn.Sequential(TimeWarp(baseModel))
 ```
+
  
- <div dir="rtl">
- 
+<div dir="rtl">
+<br>
 الان نحن بالتاكيد نريد استخدام    LSTM    وجدت ان  هنالك مشكلة لدى البعض عملية استخدام ال LSTM  في داخل nn.Sequential
 حيث وجدت احدهم يسال عن ذلك بالستاك اوفر فلو وقمت باجابته هناك من الرابط التالي
 https://stackoverflow.com/questions/44130851/simple-lstm-in-pytorch-with-sequential-module
@@ -395,8 +407,9 @@ class extractlastcell(nn.Module):
         return out[:, -1, :]
 ```
 
- <div dir="rtl">
- 
+
+<div dir="rtl">
+<br> 
 الكلاس تستقبل مخرجات الLSTM  كمدخل لها  ونقوم   حسب حاجتنا بارجاع المخرج المناسب  نحن هن نقوم بارجاع  اخر مخرج من اخر  cell
 
 
@@ -439,8 +452,8 @@ model = nn.Sequential(TimeWarp(baseModel),
 
         )
 ```
- 
- <div dir="rtl">
+
+<div dir="rtl">
  
 هنا نكون قد انتهينا     من العناصر المهمه وقد قمت ببناء وتدريب مودل ورفعه على شكل  Rest API  موجود من الرابط التالي مع الاوزان الخاصة بالتدريب
  

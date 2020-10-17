@@ -134,9 +134,13 @@ class FireDataset(Dataset):
 ```
 
  
+
+<div dir="rtl">
+ 
 <br>  الان  لاحظ اننا بحاجة كتابة دالة تقوم بقراءة اليديو من المسار  المزود لها وارجاعه على شكل مصفوف  بعد  عمل عمليات   تعديل وتحويل  حسب الحاجة 
 الدالة التي قمت ببنائها  بالكود التالي
-
+ 
+</div>
  
 ```
 def capture(filename,timesep,rgb,h,w):
@@ -177,6 +181,8 @@ def capture(filename,timesep,rgb,h,w):
  <br>  الطريقة الاولى تستخدم ذاكرة اكثر ولكنها اكفاء بالتعلم   مبنية على  عملة تغيير ابعد المصفوفة فملا لوكان لدينا 10 فيديوهات كل فيديو يتكون من 30 فريم  فيتم التعامل معها كانما 300 عنصر  اي 300 صورة كل فريم يمل صورة 
  
  الكود لهذه الطريقة هو التالي
+  
+</div>
  
  ```
  # reshape input  to be (batch_size * timesteps, input_size)
@@ -189,8 +195,12 @@ def capture(filename,timesep,rgb,h,w):
  x = x.contiguous().view(batch_size , time_steps , x.size(-1))  # this x is now ready to be entred or feed into lstm layer
 ```
  
- <br>  لو اردنا  تطبيقه بكلاس لبناء مودل متكامل يكون كالتالي  مع استخدام المخرجات  ووضعها بطبقة LSTM
+
+<div dir="rtl">
  
+<br>  لو اردنا  تطبيقه بكلاس لبناء مودل متكامل يكون كالتالي  مع استخدام المخرجات  ووضعها بطبقة LSTM
+  
+</div>
  
  
 ```
@@ -237,7 +247,15 @@ class Net(nn.Module):
 
 ``` 
  
- <br>  الطريقة الثانية باستخدم ال loop    وتمرير  الفريمات واحد تلو الاخر للكونفليوشن نيتورك   وهي اقل استخدام للذاركة ولكن تستهلك وت اكبر ووجدت بالتطبيق انها  اقل جودة بالتعلم
+
+<div dir="rtl">
+ 
+<br>  الطريقة الثانية باستخدم ال loop    وتمرير  الفريمات واحد تلو الاخر للكونفليوشن نيتورك   وهي اقل استخدام للذاركة ولكن 
+تستهلك وت اكبر ووجدت بالتطبيق انها  اقل جودة بالتعلم
+
+ 
+</div>
+
  
  ```
         batch_size, time_steps, C, H, W = x.size() #get shape of the input
@@ -255,8 +273,12 @@ class Net(nn.Module):
         x = torch.stack(output, dim=0).transpose_(0, 1)   # this x is now ready to be entred or feed into lstm layer
 ```
  
- <br>  لو اردنا  تطبيقه بكلاس لبناء مودل متكامل يكون كالتالي  مع استخدام المخرجات  ووضعها بطبقة LSTM
 
+<div dir="rtl">
+ 
+<br>  لو اردنا  تطبيقه بكلاس لبناء مودل متكامل يكون كالتالي  مع استخدام المخرجات  ووضعها بطبقة LSTM
+ 
+</div>
  
 
 ```
@@ -307,8 +329,11 @@ class Net2(nn.Module):
         return x 
 ```
  
+<div dir="rtl">
+ 
 <br>  لتسهيل العمل وكتابة كود نضيف ساقوم بعمل كلاس   يقوم بالعمليتين حسب اختيارنا اثناء البناء  وايضا يسهل لناعملية استدعاء الكلاس باي مكان نريد
-
+ 
+</div>
  
 ```
 class TimeWarp(nn.Module):
@@ -342,14 +367,17 @@ class TimeWarp(nn.Module):
         return x
 
 ```
+<div dir="rtl">
  
-لو اردنا استخدام الكلاس اعلاه    يمكن ذلك من خلال الكود التوضيحي التالي
- 
+لو اردنا استخدام الكلاس اعلاه    يمكن ذلك من خلال الكود التوضيحي التالي 
+</div> 
 ```
 baseModel = models.vgg19(pretrained=pretrained).features
 
 model = nn.Sequential(TimeWarp(baseModel))
 ```
+ 
+ <div dir="rtl">
  
 الان نحن بالتاكيد نريد استخدام    LSTM    وجدت ان  هنالك مشكلة لدى البعض عملية استخدام ال LSTM  في داخل nn.Sequential
 حيث وجدت احدهم يسال عن ذلك بالستاك اوفر فلو وقمت باجابته هناك من الرابط التالي
@@ -357,7 +385,8 @@ https://stackoverflow.com/questions/44130851/simple-lstm-in-pytorch-with-sequent
 
 عموما الفكرة هو ببالتحكم بمخرجات الكلاس الخاصة بالLSTM
 وقمت بها بالطريقة التالية 
- 
+  
+</div>
 
 ```
 class extractlastcell(nn.Module):
@@ -366,13 +395,15 @@ class extractlastcell(nn.Module):
         return out[:, -1, :]
 ```
 
+ <div dir="rtl">
  
 الكلاس تستقبل مخرجات الLSTM  كمدخل لها  ونقوم   حسب حاجتنا بارجاع المخرج المناسب  نحن هن نقوم بارجاع  اخر مخرج من اخر  cell
 
 
 الان الكود الكامل لاستخدام الكلاسين وبناء  مودل كامل هو كالتالي
 مع استخدم transffer learning 
-
+ 
+</div>
  
 
 ```
@@ -408,6 +439,8 @@ model = nn.Sequential(TimeWarp(baseModel),
 
         )
 ```
+ 
+ <div dir="rtl">
  
 هنا نكون قد انتهينا     من العناصر المهمه وقد قمت ببناء وتدريب مودل ورفعه على شكل  Rest API  موجود من الرابط التالي مع الاوزان الخاصة بالتدريب
  

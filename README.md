@@ -455,13 +455,15 @@ model = nn.Sequential(TimeWarp(baseModel),
 <div dir="rtl">
  
 هنا نكون قد انتهينا     من العناصر المهمه وقد قمت ببناء وتدريب مودل ورفعه على شكل  Rest API  موجود من الرابط التالي مع الاوزان الخاصة بالتدريب
- 
+ <br>
 https://github.com/mamonraab/violance-detection-in-video-with-pytroch/tree/main/flaskapp
+<br>
 ويمكنكم ان تقومو بتدريب مودل خاص بكم باستخدام ماتم شرحة بهذا المقال 
-
+<br>
 مع التحية والسلام
 اود ان اشير الى انني    قد قمت قبل سنة بكتابة ورقة علمية متخصصة بهذا الموضوع   ولن الكود البرمجي لها كان باستخدم التنسورفلو وبمعمارية مختلفة عن  المذكورة    بهذا المقال
 اذا احببت ان تطلع على الورقة العملية يمكنك من الرابط التالي
+<br>
 https://www.researchgate.net/publication/336156932_Robust_Real-Time_Violence_Detection_in_Video_Using_CNN_And_LSTM
 </div>
 

@@ -456,7 +456,7 @@ model = nn.Sequential(TimeWarp(baseModel),
  
 هنا نكون قد انتهينا     من العناصر المهمه وقد قمت ببناء وتدريب مودل ورفعه على شكل  Rest API  موجود من الرابط التالي مع الاوزان الخاصة بالتدريب
  <br>
-https://github.com/mamonraab/violance-detection-in-video-with-pytroch/tree/main/flaskapp
+https://github.com/mamonraab/Arabic-violance-detaction-in-videos-pytorch/tree/main/flaskapp
 <br>
 ويمكنكم ان تقومو بتدريب مودل خاص بكم باستخدام ماتم شرحة بهذا المقال 
 <br>

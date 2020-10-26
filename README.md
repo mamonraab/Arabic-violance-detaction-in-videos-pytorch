@@ -68,8 +68,8 @@
 ```
 from torch.utils.data import Dataset
 
-class FireDataset(Dataset):
-    """Fire dataset."""
+class VidDataset(Dataset):
+    """Video dataset."""
 
     def __init__(self, ----):
 
@@ -101,8 +101,8 @@ class FireDataset(Dataset):
 ```
 from torch.utils.data import Dataset 
 
-class FireDataset(Dataset):
-    """Fire dataset."""
+class VidDataset(Dataset):
+    """Video dataset."""
 
     def __init__(self, datas, timesep=30,rgb=3,h=120,w=120):
         """
